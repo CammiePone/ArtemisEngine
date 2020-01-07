@@ -2,12 +2,21 @@ import org.gradle.internal.os.OperatingSystem
 
 plugins
 {
-	id 'java'
+	id 'application'
 }
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+application
+{
+	mainClassName = "com.artemisgamesstudio.engine.Main"
+}
+
 
 project.ext.lwjglVersion = "3.2.3"
 
-switch (OperatingSystem.current()) {
+switch (OperatingSystem.current())
+{
 	case OperatingSystem.LINUX:
 		project.ext.lwjglNatives = "natives-linux"
 		break
@@ -16,11 +25,13 @@ switch (OperatingSystem.current()) {
 		break
 }
 
-repositories {
+repositories
+{
 	mavenCentral()
 }
 
-dependencies {
+dependencies
+{
 	implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
 
 	implementation "org.lwjgl:lwjgl"
