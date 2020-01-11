@@ -1,32 +1,22 @@
 package com.artemisgamesstudio.engine;
 
-import com.artemisgamesstudio.engine.core.kernel.CoreEngine;
+import com.artemisgamesstudio.engine.util.interfaces.IGameLogic;
 
 public class Main
 {
-	protected CoreEngine engine;
-	
-	public Main()
-	{
-		engine = new CoreEngine();
-	}
-	
-	public void launch()
-	{
-		engine.start();
-	}
-	
-	public void init()
-	{
-		engine.init();
-	}
-	
-	public CoreEngine getEngine()
-	{
-		return engine;
-	}
-	public void setEngine(CoreEngine engine)
-	{
-		this.engine = engine;
-	}
+    public static void main(String[] args)
+    {
+        try
+        {
+            boolean vSync = true;
+            IGameLogic gameLogic = new DummyGame();
+            Engine engine = new Engine("ArtemisEngine", 1280, 720, vSync, gameLogic);
+            engine.run();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
 }
