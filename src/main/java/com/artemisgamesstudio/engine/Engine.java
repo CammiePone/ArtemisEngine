@@ -1,6 +1,7 @@
 package com.artemisgamesstudio.engine;
 
 import com.artemisgamesstudio.engine.render.Window;
+import com.artemisgamesstudio.engine.util.MouseInput;
 import com.artemisgamesstudio.engine.util.interfaces.IGameLogic;
 import com.artemisgamesstudio.engine.util.Timer;
 import org.lwjgl.glfw.GLFW;
@@ -13,10 +14,12 @@ public class Engine implements Runnable
     private final Window window;
     private final Timer timer;
     private final IGameLogic gameLogic;
+    private final MouseInput mouseInput;
 
     public Engine(String windowTitle, int width, int height, boolean vSync, IGameLogic gameLogic) throws Exception
     {
         window = new Window(windowTitle, width, height, vSync);
+        mouseInput = new MouseInput();
         this.gameLogic = gameLogic;
         timer = new Timer();
     }
@@ -43,6 +46,7 @@ public class Engine implements Runnable
     {
         window.init();
         timer.init();
+        mouseInput.init(window);
         gameLogic.init(window);
     }
 
@@ -94,12 +98,13 @@ public class Engine implements Runnable
 
     protected void input()
     {
-        gameLogic.input(window);
+        mouseInput.input(window);
+        gameLogic.input(window, mouseInput);
     }
 
     protected void update(float interval)
     {
-        gameLogic.update(interval);
+        gameLogic.update(interval, mouseInput);
     }
 
     protected void render()

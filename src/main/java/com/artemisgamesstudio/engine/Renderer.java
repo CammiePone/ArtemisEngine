@@ -3,6 +3,7 @@ package com.artemisgamesstudio.engine;
 import com.artemisgamesstudio.engine.common.GameObject;
 import com.artemisgamesstudio.engine.render.ShaderProgram;
 import com.artemisgamesstudio.engine.render.Window;
+import com.artemisgamesstudio.engine.util.Camera;
 import com.artemisgamesstudio.engine.util.Transformation;
 import com.artemisgamesstudio.engine.util.Utils;
 import org.joml.Matrix4f;
@@ -35,14 +36,14 @@ public class Renderer
 
         shaderProgram.createUniform("projectionMatrix");
         shaderProgram.createUniform("projectionMatrix");
-        shaderProgram.createUniform("worldMatrix");
+        shaderProgram.createUniform("modelViewMatrix");
         shaderProgram.createUniform("texture_sampler");
 
         float aspectRatio = (float) window.getWidth() / window.getHeight();
         projectionMatrix = new Matrix4f().perspective(FOV, aspectRatio, Z_NEAR, Z_FAR);
     }
 
-    public void render(Window window, GameObject[] gameItems)
+    public void render(Camera camera, Window window, GameObject[] gameObjects)
     {
         clear();
 
@@ -58,19 +59,17 @@ public class Renderer
         Matrix4f projectionMatrix = transformation.getProjectionMatrix(FOV, window.getWidth(), window.getHeight(), Z_NEAR, Z_FAR);
         shaderProgram.setUniform("projectionMatrix", projectionMatrix);
 
-        // Update texture shiz
+        // Update view Matrix
+        Matrix4f viewMatrix = transformation.getViewMatrix(camera);
+
         shaderProgram.setUniform("texture_sampler", 0);
 
         // Render each gameItem
-        for(GameObject gameObject : gameItems)
+        for(GameObject gameObject : gameObjects)
         {
-            // Set world matrix for this item
-            Matrix4f worldMatrix = transformation.getWorldMatrix(
-                            gameObject.getPosition(),
-                            gameObject.getRotation(),
-                            gameObject.getScale());
-
-            shaderProgram.setUniform("worldMatrix", worldMatrix);
+            // Set model view matrix for this item
+            Matrix4f modelViewMatrix = transformation.getModelViewMatrix(gameObject, viewMatrix);
+            shaderProgram.setUniform("modelViewMatrix", modelViewMatrix);
 
             // Render the mes for this game item
             gameObject.getMesh().render();
