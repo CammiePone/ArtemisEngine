@@ -5,11 +5,12 @@ import com.artemisgamesstudio.engine.core.io.MouseInput;
 import com.artemisgamesstudio.engine.core.util.interfaces.IGameLogic;
 import com.artemisgamesstudio.engine.core.util.Timer;
 
+import static org.lwjgl.glfw.GLFW.glfwGetTime;
+
 public class Engine implements Runnable
 {
-    public static final int TARGET_FPS = 120;
+    public static final int TARGET_FPS = Integer.MAX_VALUE;
     public static final int TARGET_UPS = 25;
-    public static double ups;
     private final Window window;
     private final Timer timer;
     private final IGameLogic gameLogic;
@@ -51,13 +52,29 @@ public class Engine implements Runnable
 
     protected void gameLoop()
     {
+        double previousTime = glfwGetTime();
+        int frameCount = 0;
+
         float elapsedTime;
-        float accumulator = 0F;
-        float interval = 1F / TARGET_UPS;
+        float accumulator = 0f;
+        float interval = 1f / TARGET_UPS;
         boolean running = true;
 
         while(running && !window.windowShouldClose())
         {
+            double currentTime = glfwGetTime();
+            frameCount++;
+
+            // If a second has passed.
+            if(currentTime - previousTime >= 1.0f)
+            {
+                // Display the frame count here any way you want.
+                System.out.println(frameCount);
+
+                frameCount = 0;
+                previousTime = currentTime;
+            }
+
             elapsedTime = timer.getElapsedTime();
             accumulator += elapsedTime;
 
@@ -80,7 +97,7 @@ public class Engine implements Runnable
 
     private void sync()
     {
-        float loopSlot = 1F / TARGET_FPS;
+        float loopSlot = 1f / TARGET_FPS;
         double endTime = timer.getLastLoopTime() + loopSlot;
 
         while(timer.getTime() < endTime)
@@ -89,7 +106,7 @@ public class Engine implements Runnable
             {
                 Thread.sleep(1);
             }
-            catch (InterruptedException e)
+            catch(InterruptedException e)
             {
             }
         }
