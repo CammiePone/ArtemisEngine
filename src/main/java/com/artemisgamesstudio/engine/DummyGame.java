@@ -2,6 +2,7 @@ package com.artemisgamesstudio.engine;
 
 import com.artemisgamesstudio.engine.common.GameObject;
 import com.artemisgamesstudio.engine.render.Mesh;
+import com.artemisgamesstudio.engine.render.Texture;
 import com.artemisgamesstudio.engine.render.Window;
 import com.artemisgamesstudio.engine.util.interfaces.IGameLogic;
 import org.joml.Vector3f;
@@ -45,16 +46,37 @@ public class DummyGame implements IGameLogic
                 0.5f, -0.5f, -0.5f,
         };
 
-        float[] colours = new float[]
+        float[] textCoords = new float[]
         {
-                0.5f, 0.0f, 0.0f,
-                0.0f, 0.5f, 0.0f,
-                0.0f, 0.0f, 0.5f,
-                0.0f, 0.5f, 0.5f,
-                0.5f, 0.0f, 0.0f,
-                0.0f, 0.5f, 0.0f,
-                0.0f, 0.0f, 0.5f,
-                0.0f, 0.5f, 0.5f,
+                0.0f, 0.0f,
+                0.0f, 0.5f,
+                0.5f, 0.5f,
+                0.5f, 0.0f,
+
+                0.0f, 0.0f,
+                0.5f, 0.0f,
+                0.0f, 0.5f,
+                0.5f, 0.5f,
+
+                // For text coords in top face
+                0.0f, 0.5f,
+                0.5f, 0.5f,
+                0.0f, 1.0f,
+                0.5f, 1.0f,
+
+                // For text coords in right face
+                0.0f, 0.0f,
+                0.0f, 0.5f,
+
+                // For text coords in left face
+                0.5f, 0.0f,
+                0.5f, 0.5f,
+
+                // For text coords in bottom face
+                0.5f, 0.0f,
+                1.0f, 0.0f,
+                0.5f, 0.5f,
+                1.0f, 0.5f,
         };
 
         int[] indices = new int[]
@@ -73,7 +95,8 @@ public class DummyGame implements IGameLogic
                 7, 6, 4, 7, 4, 5,
         };
 
-        Mesh mesh = new Mesh(positions, colours, indices);
+        Texture texture = new Texture("grassblock.png");
+        Mesh mesh = new Mesh(positions, textCoords, indices, texture);
         GameObject gameObject = new GameObject(mesh);
         gameObject.setPosition(0, 0, -2);
 

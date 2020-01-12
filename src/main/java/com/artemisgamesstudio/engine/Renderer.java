@@ -36,6 +36,7 @@ public class Renderer
         shaderProgram.createUniform("projectionMatrix");
         shaderProgram.createUniform("projectionMatrix");
         shaderProgram.createUniform("worldMatrix");
+        shaderProgram.createUniform("texture_sampler");
 
         float aspectRatio = (float) window.getWidth() / window.getHeight();
         projectionMatrix = new Matrix4f().perspective(FOV, aspectRatio, Z_NEAR, Z_FAR);
@@ -56,6 +57,9 @@ public class Renderer
         // Update projection Matrix
         Matrix4f projectionMatrix = transformation.getProjectionMatrix(FOV, window.getWidth(), window.getHeight(), Z_NEAR, Z_FAR);
         shaderProgram.setUniform("projectionMatrix", projectionMatrix);
+
+        // Update texture shiz
+        shaderProgram.setUniform("texture_sampler", 0);
 
         // Render each gameItem
         for(GameObject gameObject : gameItems)
