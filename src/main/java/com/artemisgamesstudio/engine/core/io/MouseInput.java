@@ -1,6 +1,5 @@
-package com.artemisgamesstudio.engine.util;
+package com.artemisgamesstudio.engine.core.io;
 
-import com.artemisgamesstudio.engine.render.Window;
 import org.joml.Vector2d;
 import org.joml.Vector2f;
 

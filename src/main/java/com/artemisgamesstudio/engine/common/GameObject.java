@@ -1,6 +1,6 @@
 package com.artemisgamesstudio.engine.common;
 
-import com.artemisgamesstudio.engine.render.Mesh;
+import com.artemisgamesstudio.engine.core.render.Mesh;
 import org.joml.Vector3f;
 
 public class GameObject

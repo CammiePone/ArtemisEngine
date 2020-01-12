@@ -1,4 +1,4 @@
-package com.artemisgamesstudio.engine.render;
+package com.artemisgamesstudio.engine.core.render;
 
 import org.joml.Matrix4f;
 import org.lwjgl.system.MemoryStack;

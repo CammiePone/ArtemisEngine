@@ -1,12 +1,13 @@
 package com.artemisgamesstudio.engine;
 
 import com.artemisgamesstudio.engine.common.GameObject;
-import com.artemisgamesstudio.engine.render.Mesh;
-import com.artemisgamesstudio.engine.render.Texture;
-import com.artemisgamesstudio.engine.render.Window;
-import com.artemisgamesstudio.engine.util.Camera;
-import com.artemisgamesstudio.engine.util.MouseInput;
-import com.artemisgamesstudio.engine.util.interfaces.IGameLogic;
+import com.artemisgamesstudio.engine.core.render.Mesh;
+import com.artemisgamesstudio.engine.core.render.Renderer;
+import com.artemisgamesstudio.engine.core.render.Texture;
+import com.artemisgamesstudio.engine.core.io.Window;
+import com.artemisgamesstudio.engine.core.io.Camera;
+import com.artemisgamesstudio.engine.core.io.MouseInput;
+import com.artemisgamesstudio.engine.core.util.interfaces.IGameLogic;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 

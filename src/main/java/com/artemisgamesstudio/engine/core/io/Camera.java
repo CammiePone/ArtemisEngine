@@ -1,4 +1,4 @@
-package com.artemisgamesstudio.engine.util;
+package com.artemisgamesstudio.engine.core.io;
 
 import org.joml.Vector3f;
 

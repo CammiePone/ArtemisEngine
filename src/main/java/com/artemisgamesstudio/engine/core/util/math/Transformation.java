@@ -1,6 +1,7 @@
-package com.artemisgamesstudio.engine.util;
+package com.artemisgamesstudio.engine.core.util.math;
 
 import com.artemisgamesstudio.engine.common.GameObject;
+import com.artemisgamesstudio.engine.core.io.Camera;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 

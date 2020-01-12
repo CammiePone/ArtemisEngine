@@ -1,4 +1,4 @@
-package com.artemisgamesstudio.engine.render;
+package com.artemisgamesstudio.engine.core.render;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;

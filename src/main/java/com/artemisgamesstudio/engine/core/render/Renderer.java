@@ -1,11 +1,11 @@
-package com.artemisgamesstudio.engine;
+package com.artemisgamesstudio.engine.core.render;
 
 import com.artemisgamesstudio.engine.common.GameObject;
-import com.artemisgamesstudio.engine.render.ShaderProgram;
-import com.artemisgamesstudio.engine.render.Window;
-import com.artemisgamesstudio.engine.util.Camera;
-import com.artemisgamesstudio.engine.util.Transformation;
-import com.artemisgamesstudio.engine.util.Utils;
+import com.artemisgamesstudio.engine.core.render.ShaderProgram;
+import com.artemisgamesstudio.engine.core.io.Window;
+import com.artemisgamesstudio.engine.core.io.Camera;
+import com.artemisgamesstudio.engine.core.util.math.Transformation;
+import com.artemisgamesstudio.engine.core.util.Utils;
 import org.joml.Matrix4f;
 
 import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;

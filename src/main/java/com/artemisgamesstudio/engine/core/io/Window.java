@@ -1,10 +1,14 @@
-package com.artemisgamesstudio.engine.render;
+package com.artemisgamesstudio.engine.core.io;
 
 import static org.lwjgl.glfw.GLFW.*;
+
+import com.artemisgamesstudio.engine.core.util.Utils;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWImage;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
+
+import java.nio.ByteBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;

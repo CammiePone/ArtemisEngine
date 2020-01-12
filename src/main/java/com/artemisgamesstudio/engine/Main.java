@@ -1,6 +1,7 @@
 package com.artemisgamesstudio.engine;
 
-import com.artemisgamesstudio.engine.util.interfaces.IGameLogic;
+import com.artemisgamesstudio.engine.core.Engine;
+import com.artemisgamesstudio.engine.core.util.interfaces.IGameLogic;
 
 public class Main
 {

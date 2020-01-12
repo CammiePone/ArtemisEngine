@@ -1,4 +1,4 @@
-package com.artemisgamesstudio.engine.util;
+package com.artemisgamesstudio.engine.core.util;
 
 import java.io.InputStream;
 import java.util.Scanner;

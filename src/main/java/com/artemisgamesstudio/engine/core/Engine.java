@@ -1,10 +1,9 @@
-package com.artemisgamesstudio.engine;
+package com.artemisgamesstudio.engine.core;
 
-import com.artemisgamesstudio.engine.render.Window;
-import com.artemisgamesstudio.engine.util.MouseInput;
-import com.artemisgamesstudio.engine.util.interfaces.IGameLogic;
-import com.artemisgamesstudio.engine.util.Timer;
-import org.lwjgl.glfw.GLFW;
+import com.artemisgamesstudio.engine.core.io.Window;
+import com.artemisgamesstudio.engine.core.io.MouseInput;
+import com.artemisgamesstudio.engine.core.util.interfaces.IGameLogic;
+import com.artemisgamesstudio.engine.core.util.Timer;
 
 public class Engine implements Runnable
 {

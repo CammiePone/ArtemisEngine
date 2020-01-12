@@ -1,6 +1,5 @@
-package com.artemisgamesstudio.engine.render;
+package com.artemisgamesstudio.engine.core.render;
 
-import de.matthiasmann.twl.utils.PNGDecoder;
 import org.lwjgl.system.MemoryStack;
 
 import java.nio.ByteBuffer;

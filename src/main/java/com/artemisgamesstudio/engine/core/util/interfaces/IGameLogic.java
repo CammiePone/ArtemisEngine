@@ -1,7 +1,7 @@
-package com.artemisgamesstudio.engine.util.interfaces;
+package com.artemisgamesstudio.engine.core.util.interfaces;
 
-import com.artemisgamesstudio.engine.render.Window;
-import com.artemisgamesstudio.engine.util.MouseInput;
+import com.artemisgamesstudio.engine.core.io.Window;
+import com.artemisgamesstudio.engine.core.io.MouseInput;
 
 public interface IGameLogic
 {
