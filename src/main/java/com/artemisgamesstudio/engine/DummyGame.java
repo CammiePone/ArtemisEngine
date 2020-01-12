@@ -51,9 +51,21 @@ public class DummyGame implements IGameLogic
         gameObject3.setScale(0.5f);
         gameObject3.setPosition(-2, 0, -2);
 
+        GameObject gameObject4 = new GameObject(mesh);
+        gameObject4.setScale(0.5f);
+        gameObject4.setPosition(0, 0, -4);
+
+        GameObject gameObject5 = new GameObject(mesh);
+        gameObject5.setScale(0.5f);
+        gameObject5.setPosition(2, 0, -4);
+
+        GameObject gameObject6 = new GameObject(mesh);
+        gameObject6.setScale(0.5f);
+        gameObject6.setPosition(-2, 0, -4);
+
         gameObjects = new GameObject[]
         {
-                gameObject1, gameObject2, gameObject3
+                gameObject1, gameObject2, gameObject3, gameObject4, gameObject5, gameObject6
         };
     }
 

@@ -9,7 +9,7 @@ public class Main
     {
         try
         {
-            boolean vSync = false;
+            boolean vSync = true;
             IGameLogic gameLogic = new DummyGame();
             Engine engine = new Engine("ArtemisEngine", 1280, 720, vSync, gameLogic);
             engine.run();
