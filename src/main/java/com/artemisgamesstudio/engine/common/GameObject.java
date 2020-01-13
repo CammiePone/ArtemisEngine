@@ -1,18 +1,32 @@
 package com.artemisgamesstudio.engine.common;
 
 import com.artemisgamesstudio.engine.core.render.Mesh;
+import com.artemisgamesstudio.engine.core.render.OBJLoader;
+import com.artemisgamesstudio.engine.core.render.Texture;
 import org.joml.Vector3f;
 
 public class GameObject
 {
-    private final Mesh mesh;
+    private Mesh mesh;
     private final Vector3f position;
     private float scale;
     private final Vector3f rotation;
 
-    public GameObject(Mesh mesh)
+    public GameObject(String string)
     {
-        this.mesh = mesh;
+        this.mesh = null;
+
+        try
+        {
+            this.mesh = OBJLoader.loadMesh(string + ".obj");
+            Texture texture = new Texture(string + ".png");
+            mesh.setTexture(texture);
+        }
+        catch(Exception e)
+        {
+
+        }
+
         position = new Vector3f(0, 0, 0);
         scale = 1;
         rotation = new Vector3f(0, 0, 0);

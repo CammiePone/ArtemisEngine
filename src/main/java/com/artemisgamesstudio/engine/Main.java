@@ -17,7 +17,7 @@ public class Main
         catch(Exception e)
         {
             e.printStackTrace();
-            System.exit(0);
+            System.exit(-1);
         }
     }
 }
