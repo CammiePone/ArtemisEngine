@@ -35,7 +35,7 @@ repositories {
 
 dependencies {
 	implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
-	
+
 	compile "org.joml:joml:1.9.20"
 	compile group: 'org.l33tlabs.twl', name: 'pngdecoder', version: '1.0'
 	implementation "org.lwjgl:lwjgl"
