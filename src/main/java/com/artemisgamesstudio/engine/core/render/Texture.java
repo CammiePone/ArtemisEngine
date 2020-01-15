@@ -73,6 +73,10 @@ public class Texture
         // Generate Mip Map
         glGenerateMipmap(GL_TEXTURE_2D);
 
+        // Set the texture filtering to nearest
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
         stbi_image_free(buf);
 
         return textureId;
